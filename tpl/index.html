@@ -1,6 +1,9 @@
 <include target="header.html" />
 <!--TODO-->
 <table id="auctionList" class="x_table x_table-striped x_table-hover">
+	<caption>
+		<strong>Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}</strong>
+	</caption>
 	<thead>
 		<tr>
 			<th scope="col">{$lang->no}</th>
@@ -9,9 +12,7 @@
 			<th scope="col">{$lang->browser_title}</th>
 			<th scope="col">{$lang->regdate}</th>
 			<th scope="col">{$lang->cmd_edit}</th>
-			<th scope="col">
-				<input type="checkbox" data-name="cart" title="Check All" />
-			</th>
+			<th scope="col"><input type="checkbox" data-name="cart" title="Check All" /></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,41 +23,16 @@
 					<block cond="$val->site_srl">{$lang->virtual_site}</block>
 					<block cond="!$val->site_srl">{$lang->not_exists}</block>
 				</block>
-				<block cond="$val->module_category_srl"
-					>{$module_category[$val->module_category_srl]->title}</block
-				>
+				<block cond="$val->module_category_srl">{$module_category[$val->module_category_srl]->title}</block>
 			</td>
 			<td>{$val->mid}</td>
-			<td>
-				<a href="{getSiteUrl($val->domain,'','mid',$val->mid)}"
-					>{$val->browser_title}</a
-				>
-			</td>
+			<td><a href="{getSiteUrl($val->domain,'','mid',$val->mid)}">{$val->browser_title}</a></td>
 			<td>{zdate($val->regdate,"Y-m-d")}</td>
 			<td>
-				<a
-					href="{getUrl('act','dispAuctionAdminInfo','module_srl',$val->module_srl)}"
-					class="x_icon-cog"
-					title="{$lang->cmd_setup}"
-					>{$lang->cmd_setup}</a
-				>
-				<a
-					href="{getUrl('act','dispAuctionAdminDelete','module_srl', $val->module_srl)}"
-					class="x_icon-remove"
-					title="{$lang->cmd_delete}"
-					>{$lang->cmd_delete}</a
-				>
+				<a href="{getUrl('act','dispAuctionAdminInfo','module_srl',$val->module_srl)}" class="x_icon-cog" title="{$lang->cmd_setup}">{$lang->cmd_setup}</a>
+				<a href="{getUrl('act','dispAuctionAdminDelete','module_srl', $val->module_srl)}" class="x_icon-remove" title="{$lang->cmd_delete}">{$lang->cmd_delete}</a>
 			</td>
-			<td>
-				<input
-					type="checkbox"
-					name="cart"
-					value="{$val->module_srl}"
-					class="selectedModule"
-					data-mid="{$val->mid}"
-					data-browser_title="{$val->browser_title}"
-				/>
-			</td>
+			<td><input type="checkbox" name="cart" value="{$val->module_srl}" class="selectedModule" data-mid="{$val->mid}" data-browser_title="{$val->browser_title}" /></td>
 		</tr>
 		<tr cond="!$auction_list">
 			<td>{$lang->no_auction_instance}</td>

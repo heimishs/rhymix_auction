@@ -1,0 +1,23 @@
+<table name="auctions">
+	<column name="auction_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" index="idx_auction_srl" />
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" />
+	<column name="auction_title" type="varchar" size="48" notnull="notnull" />
+	<column name="auction_subtitle" type="varchar" size="30" />
+	<column name="auction_start_day" type="varchar" size="30" />
+	<column name="auction_end_day" type="varchar" size="30" />
+	<column name="auction_price" type="number" size="30" />
+	<column name="auction_count" type="number" size="30" />
+	<column name="auction_thumbnail" type="bigtext" />
+	<column name="auction_option1" type="varchar" size="10" />
+	<column name="auction_option2" type="varchar" size="10" />
+	<column name="auction_option3" type="varchar" size="10" />
+	<column name="auction_sub_option1" type="varchar" size="30" />
+	<column name="auction_sub_option2" type="varchar" size="30" />
+	<column name="auction_sub_option3" type="varchar" size="30" />
+	<column name="auction_sub_option4" type="varchar" size="30" />
+	<column name="auction_caution1" type="bigtext"/>
+	<column name="auction_caution2" type="bigtext"/>
+	<column name="auction_content" type="bigtext" />
+	<column name="auction_state" type="varchar" size="10" />
+	<column name="auction_insert_date" type="varchar" size="8" />
+</table>

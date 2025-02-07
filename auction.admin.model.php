@@ -9,5 +9,10 @@
  */
 class AuctionAdminModel extends Auction
 {
-
+    // 목록 가져오기
+    function getAuctionAdminList($args)
+    {
+        $output = executeQueryArray('auction.getAuctionAdminList', $args);
+        return $output;
+    }
 }

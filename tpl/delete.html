@@ -1,0 +1,17 @@
+<h2>경매게시판 삭제</h2>
+
+<p class="x_alert x_alert-info" id="aboutCommunication" hidden>{nl2br($lang->about_communication)}</p>
+
+<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/communication/tpl/index/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+
+<p>정말 "<strong>{$module_info->browser_title}</strong>" 경매게시판을 삭제하시겠습니까?</p>
+
+<form action="./" method="post" onsubmit="return procFilter(this, admin_delete)" enctype="multipart/form-data">
+    <input type="hidden" name="act" value="procAuctionAdminDelete" />
+    <input type="hidden" name="module_srl" value="{$module_srl}" />
+    <input type="hidden" name="menu_srl" value="{$module_info->menu_srl}" />
+    <button type="submit">예, 삭제합니다</button>
+    <a href="{getUrl('act', 'dispAuctionAdminIndex')}">아니요, 취소합니다</a>
+</form>
