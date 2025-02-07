@@ -1,0 +1,33 @@
+<!--%import("css/default.css")-->
+
+
+<h3 class="xeAdmin"><span class="gray">경매관리
+    <div class="infoText">경매모듈 설정관리페이지입니다</div>
+    
+    <!--@if($module_info)-->
+    <div class="header4">
+    
+        <!--@if($module_info->mid)-->
+        <h4 class="xeAdmin">{$module_info->mid} <span class="vr">|</span> <a href="{getSiteUrl($module_info->domain,'','mid',$module_info->mid)}" onclick="window.open(this.href); return false;" class="view">경매보기</a></h4>
+        <!--@end-->
+    
+        <ul class="localNavigation">
+            <!--@if($module=='admin')-->
+            <li <!--@if($act=='dispAuctionAdminList')-->class="on"<!--@end-->><a href="{getUrl('act','dispAuctionAdminList','module_srl','')}">경매게시판목록</a></li>
+            
+            
+            <!--@else-->
+            <li><a href="{getUrl('act','')}">{$lang->cmd_back}</a></li>
+            <!--@end-->
+    
+            <!--@if($module_srl)-->
+             <li <!--@if($act=='dispAuctionAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispAuctionAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+            <li <!--@if($act=='dispAuctionAdminSkinInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispAuctionAdminSkinInfo')}">{$lang->cmd_manage_skin}</a></li>
+            <!--카테고리-->
+            <li <!--@if($act=='dispAuctionAdminCategories')-->class="on"<!--@end-->><a href="{getUrl('act','dispAuctionAdminCategories','$module_srl','')}">진행중인 경매</a></li>
+            <li <!--@if($act=='dispAuctionAdminCategories')-->class="on"<!--@end-->><a href="{getUrl('act','dispAuctionAdminProductInsert','$module_srl','')}">경매등록</a></li>
+            <li <!--@if($act=='dispAuctionAdminCategories')-->class="on"<!--@end-->><a href="{getUrl('act','dispAuctionAdminCategories','$module_srl','')}">카테고리</a></li>
+            <!--@end-->
+        </ul>
+    </div>
+    <!--@end-->
