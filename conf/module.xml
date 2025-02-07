@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+	<grants>
+	</grants>
+	<actions>
+		<!-- 관리자 액션 -->
+		<action name="dispAuctionAdminIndex" type="view" menu_name="auction" admin_index="true" />
+		<action name="dispAuctionAdminConfig" type="view" menu_name="auction" />
+		<action name="procAuctionAdminInsertConfig" type="controller" />
+		<!-- 일반 액션 -->
+		<action name="dispAuctionIndex" type="view" index="true" />
+	</actions>
+	<menus>
+		<menu name="auction" type="all">
+			<title xml:lang="ko">경매모듈</title>
+		</menu>
+	</menus>
+</module>

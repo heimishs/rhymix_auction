@@ -1,0 +1,168 @@
+<config autoescape="on" />
+<load target="css/config.css" />
+<load target="js/config.js" />
+
+<div class="x_page-header">
+	<h1>{$lang->cmd_auction}</h1>
+</div>
+
+<ul class="x_nav x_nav-tabs">
+	<li class="x_active" |cond="$act == 'dispAuctionAdminConfig'">
+		<a href="{getUrl('', 'module', 'admin', 'act', 'dispAuctionAdminConfig')}"
+			>{$lang->cmd_auction_general_config}</a
+		>
+	</li>
+</ul>
+모듈번호: {$module_srl}
+<form class="x_form-horizontal" action="./" method="post" id="auction">
+	<input type="hidden" name="module" value="auction" />
+	<input type="hidden" name="act" value="procAuctionAdminInsertConfig" />
+	<input
+		type="hidden"
+		name="success_return_url"
+		value="{getRequestUriByServerEnviroment()}"
+	/>
+	<input
+		type="hidden"
+		name="xe_validator_id"
+		value="modules/auction/tpl/config/1"
+	/>
+
+	<section class="section">
+		<div class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+			<p>{$XE_VALIDATOR_MESSAGE}</p>
+		</div>
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="lang_browser_title"
+				>{$lang->mid}</label
+			>
+			<div class="x_controls">
+				<input
+					type="text"
+					name="mid"
+					id="browser_title"
+					value=""
+					class="inputTypeText w200"
+				/>
+				<p>{$lang->about_mid}</p>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="lang_browser_title"
+				>{$lang->browser_title}</label
+			>
+			<div class="x_controls">
+				<input
+					type="text"
+					name="browser_title"
+					id="browser_title"
+					value="<!--@if(strpos($module_info->browser_title, '$user_lang->') === false)-->{$module_info->browser_title}<!--@else-->{htmlspecialchars($module_info->browser_title, ENT_COMPAT | ENT_HTML401, 'UTF-8', false)}<!--@end-->"
+					class="lang_code"
+				/>
+			</div>
+		</div>
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="lang_meta_keywords"
+				>{$lang->meta_keywords}</label
+			>
+			<div class="x_controls">
+				<input
+					type="text"
+					name="meta_keywords"
+					id="meta_keywords"
+					value="<!--@if(strpos($module_info->meta_keywords, '$user_lang->') === false)-->{$module_info->meta_keywords}<!--@else-->{htmlspecialchars($module_info->meta_keywords)}<!--@end-->"
+					class="lang_code"
+				/>
+			</div>
+		</div>
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="lang_meta_description"
+				>{$lang->meta_description}</label
+			>
+			<div class="x_controls">
+				<input
+					type="text"
+					name="meta_description"
+					id="meta_description"
+					value="<!--@if(strpos($module_info->meta_description, '$user_lang->') === false)-->{$module_info->meta_description}<!--@else-->{htmlspecialchars($module_info->meta_description)}<!--@end-->"
+					class="lang_code"
+				/>
+			</div>
+		</div>
+
+		<!-- 레이아웃 -->
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="layout">{$lang->layout}</label>
+			<div class="x_controls">
+				<select id="layout" name="layout_srl" style="width: auto">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$layout_list => $key,$val" selected="selected">
+						{$val->title} ({$val->layout})
+					</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="mlayout_srl"
+				>{$lang->mobile_layout}</label
+			>
+			<div class="x_controls">
+				<select id="mlayout_srl" name="mlayout_srl" style="width: auto">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$mlayout_list => $key,$val" selected="selected">
+						{$val->title} ({$val->layout})
+					</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="skin_srl">{$lang->skin}</label>
+			<div class="x_controls">
+				<select name="skin">
+					<!--@foreach($skin_list as $key=>$val)-->
+					<option value="{$key}" <!--@if($module_info->
+						skin==$key ||(!$module_info->skin &&
+						$key=='xe_form'))-->selected="selected"<!--@end-->>{$val->title}
+					</option>
+					<!--@end-->
+				</select>
+			</div>
+		</div>
+
+		<div class="x_control-group">
+			<label class="x_control-label" for="example_config"
+				>{$lang->cmd_auction_example_config}</label
+			>
+			<div class="x_controls">
+				<select name="example_config" id="example_config">
+					<option
+						value="Y"
+						selected="selected"
+						|cond="$auction_config->example_config !== 'N'"
+					>
+						{$lang->cmd_yes}
+					</option>
+					<option
+						value="N"
+						selected="selected"
+						|cond="$auction_config->example_config === 'N'"
+					>
+						{$lang->cmd_no}
+					</option>
+				</select>
+			</div>
+		</div>
+	</section>
+
+	<div class="btnArea x_clearfix">
+		<button type="submit" class="x_btn x_btn-primary x_pull-right">
+			{$lang->cmd_registration}
+		</button>
+	</div>
+</form>
