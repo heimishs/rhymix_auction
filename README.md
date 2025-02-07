@@ -1,7 +1,7 @@
-경매모듈
+경매모듈 refactoring(리팩터링) 
 ============
 
-포에시스의 "라이믹스/XE 모듈 생성기"를 사용하여 제작한 모듈입니다.
+기존 PHP5 버전으로 작성된 모듈을 PHP 8.4 기준에 맞춰 리팩터링중입니다 😭
 
-https://www.poesis.dev/
+
 # rhymix_auction
