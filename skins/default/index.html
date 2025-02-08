@@ -1,5 +1,215 @@
 <config autoescape="on" />
-<load target="css/skin.css" />
+<load target="css/bulma-no-dark-mode.min.css" />
+<load target="css/index.scss" />
 <load target="js/skin.js" />
 
-스킨
+<section class="auction">
+  <!-- 경매 검색 -->
+  <div class="searchForm">
+    <form action="">
+      <div class="items">
+        <div class="field">
+          <div class="control">
+            <div class="select">
+              <select>
+                <option>상품명</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary">검색</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- 관리자용 경매등록 메뉴 -->
+  <div class="auctionAdminMenu has-text-right mb-3">
+    <button class="button is-dark" onClick="location.href='{getUrl('act','dispAuctionInsert')}'" >경매등록</button>
+  </div>
+
+  <!-- 경매리스트 -->
+  <div class="products">
+    <div class="columns">
+      <div class="column product">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 is-flex is-justify-content-center">
+              <img
+                src="https://th3.tmon.kr/thumbs/image/23f/eb4/895/20567cdae_700x700_95_FIT.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="subtitle is-6">
+                  코치 플로럴 오드퍼퓸 EDP 90ml (케이스손상)
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="content is-flex is-justify-content-space-between is-align-items-center"
+            >
+              <p class="title is-5 m-0">59,000원</p>
+              <span class="tag is-dark is-inline-block">
+                <p class="subtitle is-6 has-text-right has-text-white">
+                  6명 구매
+                </p>
+              </span>
+            </div>
+            <div class="notification is-dark has-text-centered">
+              <h2 class="title is-2 has-text-white">20:00:00</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column product">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 is-flex is-justify-content-center">
+              <img
+                src="https://th3.tmon.kr/thumbs/image/23f/eb4/895/20567cdae_700x700_95_FIT.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="subtitle is-6">
+                  코치 플로럴 오드퍼퓸 EDP 90ml (케이스손상)
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="content is-flex is-justify-content-space-between is-align-items-center"
+            >
+              <p class="title is-5 m-0">59,000원</p>
+              <span class="tag is-dark is-inline-block">
+                <p class="subtitle is-6 has-text-right has-text-white">
+                  6명 구매
+                </p>
+              </span>
+            </div>
+            <div class="notification is-dark has-text-centered">
+              <h2 class="title is-2 has-text-white">20:00:00</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column product">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 is-flex is-justify-content-center">
+              <img
+                src="https://th3.tmon.kr/thumbs/image/23f/eb4/895/20567cdae_700x700_95_FIT.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="subtitle is-6">
+                  코치 플로럴 오드퍼퓸 EDP 90ml (케이스손상)
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="content is-flex is-justify-content-space-between is-align-items-center"
+            >
+              <p class="title is-5 m-0">59,000원</p>
+              <span class="tag is-dark is-inline-block">
+                <p class="subtitle is-6 has-text-right has-text-white">
+                  6명 구매
+                </p>
+              </span>
+            </div>
+            <div class="notification is-dark has-text-centered">
+              <h2 class="title is-2 has-text-white">20:00:00</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column product">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 is-flex is-justify-content-center">
+              <img
+                src="https://th3.tmon.kr/thumbs/image/23f/eb4/895/20567cdae_700x700_95_FIT.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="subtitle is-6">
+                  코치 플로럴 오드퍼퓸 EDP 90ml (케이스손상)
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="content is-flex is-justify-content-space-between is-align-items-center"
+            >
+              <p class="title is-5 m-0">59,000원</p>
+              <span class="tag is-dark is-inline-block">
+                <p class="subtitle is-6 has-text-right has-text-white">
+                  6명 구매
+                </p>
+              </span>
+            </div>
+            <div class="notification is-dark has-text-centered">
+              <h2 class="title is-2 has-text-white">20:00:00</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 페이징 -->
+  <div class="auctionPagination">
+    <nav
+      class="pagination is-centered"
+      role="navigation"
+      aria-label="pagination"
+    >
+      <a href="#" class="pagination-previous">이전</a>
+      <a href="#" class="pagination-next">다음</a>
+      <ul class="pagination-list">
+        <li>
+          <a href="#" class="pagination-link" aria-label="Goto page 45">45</a>
+        </li>
+        <li>
+          <a
+            class="pagination-link is-current"
+            aria-label="Page 46"
+            aria-current="page"
+            >46</a
+          >
+        </li>
+        <li>
+          <a href="#" class="pagination-link" aria-label="Goto page 47">47</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>

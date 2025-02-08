@@ -15,6 +15,10 @@ class AuctionAdminView extends Auction
 	 */
 	public function init()
 	{
+
+		// module model 객체 생성 
+		$oModuleModel = &getModel('module');
+		
 		 // module_srl이 있으면 미리 체크하여 존재하는 모듈이면 module_info 세팅
 		 $module_srl = Context::get('module_srl');
 		 if(!$module_srl && $this->module_srl) 
@@ -22,9 +26,6 @@ class AuctionAdminView extends Auction
 			 $module_srl = $this->module_srl;
 			 Context::set('module_srl', $module_srl);
 		 }
-
-		 // module model 객체 생성 
-		 $oModuleModel = &getModel('module');
 
 		 // module_srl이 넘어오면 해당 모듈의 정보를 미리 구해 놓음
 		 // 브라우져 타이틀, 관리자, 레이아웃 등 xe_modules table의 값과 정보

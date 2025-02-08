@@ -1,0 +1,402 @@
+<load target="css/bulma-no-dark-mode.min.css" />
+
+<!--@if($auction_info->update)-->
+<div id="full" class="box">
+  <form action="./" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="module_srl" value="{$module_srl}" />
+    <input type="hidden" name="auction_insert_date" value="{date("Ymd")}" />
+    <input
+      type="hidden"
+      name="auction_srl"
+      value="{$auction_info->auction_srl}"
+    />
+    <input
+      type="hidden"
+      name="auction_content"
+      value="{escape($auction_info->auction_content)}"
+    />
+    <input type="hidden" name="act" value="procAuctionUpdate" />
+    <input type="hidden" name="success_return_url" value="{$mid}" />
+
+
+    <div class="notification is-danger is-light">
+      <button class="delete"></button>
+      Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum
+      dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta
+      nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus
+      diam, et dictum <a>felis venenatis</a> efficitur.
+    </div>
+    <div class="field">
+    <div class="x_controls ">
+      <label class="label">상품명</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_title"
+        value="{$auction_info->auction_title}"
+        placeholder="불가리 블루 맨 100ml EDP"
+      />
+      <p class="help is-danger">한글 및 영문 숫자만 사용가능합니다</p>
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls ">
+      <label class="label">상품요약 설명</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_subtitle"
+        value="{$auction_info->auction_subtitle}"
+        placeholder=""
+      />
+      <p class="help is-danger">20자 미만 작성권장합니다</p>
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">경매시작일자</label>
+      <input
+        type="datetime-local"
+        name="auction_start_day"
+        value="{$auction_info->auction_start_day}"
+      />
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">경매종료일자</label>
+      <input
+        type="datetime-local"
+        name="auction_end_day"
+        value="{$auction_info->auction_end_day}"
+      />
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">시작 입찰가</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_price"
+        value="{$auction_info->auction_price}"
+        placeholder="1000"
+      />
+      <p class="help is-danger">최소금액은 1,000원 입니다</p>
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">상품 재고</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_count"
+        value="{$auction_info->auction_count}"
+        placeholder="1"
+      />
+      <p class="help is-danger">최종 입찰가격이 정해진 후 구매가능한 수량입니다</br> 1개만 입력하면 추가판매는 진행되지않습니다.</p>
+    </div>
+  </div>
+  
+ 
+    
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">사용성별</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="auction_sub_option2"
+            value="{$auction_info->auction_sub_option2}"
+          >
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+            <option value="남여공용">남여공용</option>
+            <option value="구분없음">구분없음</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">사용여부</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="auction_sub_option4"
+            value="{$auction_info->auction_sub_option4}"
+          >
+            <option value="새상품">새상품</option>
+            <option value="사용감있음">사용감있음</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">손상여부</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="auction_sub_option3"
+            value="{$auction_info->auction_sub_option3}"
+          >
+            <option value="손상없음">손상없음</option>
+            <option value="약간손상">손상있음</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">사용시 주의사항</label>
+      <textarea
+        class="textarea"
+        placeholder="Textarea"
+        name="auction_caution1"
+        value="{$auction_info->auction_caution1}"
+      ></textarea>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">반품 및 환불고시 사항</label>
+      <textarea
+        class="textarea"
+        placeholder="Textarea"
+        name="auction_caution2"
+        value="{$auction_info->auction_caution2}"
+      ></textarea>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">대표이미지</label>
+      <div class="file has-name is-left">
+        <label class="file-label">
+          <input class="file-input" type="file" name="auction_thumbnail" />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label"> 파일을 선택해주세요 </span>
+          </span>
+          <span class="file-name"> Screen Shot 2017-07-29 at 15.54.25.png </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">상세설명</label>
+      {$editor|noescape}
+    </div>
+  </div>
+    <div class="level-right">
+      <button class="button">돌아가기</button>
+      <button class="button is-info level-right">경매등록</button>
+    </div>
+  </form>
+</div>
+
+<!--@else-->
+
+<section class="box">
+  <form action="./" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="module_srl" value="{$module_srl}" />
+    <input type="hidden" name="auction_insert_date" value="{date(" Ymd")}" />
+    <input type="hidden" name="auction_srl" value="{$auction_srl}" />
+    <input type="hidden" name="auction_content" />
+    <input type="hidden" name="act" value="procAuctionInsert" />
+    <input type="hidden" name="success_return_url" value="{$mid}" />
+
+
+    <div class="notification is-danger is-light">
+      <button class="delete"></button>
+      <strong>주의사항</strong><br>
+      경매가 시작된 후에는 경매가 종료될 때 까지 상품을 수정할 수 없습니다<br> 반드시 경매 시작일과 경매 종료일과 재고수량을 확인하고 등록해주시기 바랍니다 
+    </div>
+    <div class="field">
+    <div class="x_controls ">
+      <label class="label">상품명</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_title"
+        value="{$auction_info->auction_title}"
+        placeholder="불가리 블루 맨 100ml EDP"
+      />
+      <p class="help is-danger">한글 및 영문 숫자만 사용가능합니다</p>
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls ">
+      <label class="label">상품요약 설명</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_subtitle"
+        value="{$auction_info->auction_subtitle}"
+        placeholder="불가리의 본질이 지닌 세련미와 우아함"
+      />
+      <p class="help is-danger">20자 미만 작성권장합니다</p>
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">경매시작일자</label>
+      <input
+        type="datetime-local"
+        name="auction_start_day"
+        value="{$auction_info->auction_start_day}"
+      />
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">경매종료일자</label>
+      <input
+        type="datetime-local"
+        name="auction_end_day"
+        value="{$auction_info->auction_end_day}"
+      />
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">시작 입찰가</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_price"
+        value="{$auction_info->auction_price}"
+        placeholder="1000"
+      />
+      <p class="help is-danger">최소금액은 1,000원 입니다</p>
+    </div>
+    </div>
+    <div class="field">
+    <div class="x_controls">
+      <label class="label">상품 재고</label>
+      <input
+        class="input"
+        type="text"
+        name="auction_count"
+        value="{$auction_info->auction_count}"
+        placeholder="1"
+      />
+      <p class="help is-danger">최종 입찰가격이 정해진 후 구매가능한 수량입니다</br> 1개만 입력하면 추가판매는 진행되지않습니다.</p>
+    </div>
+  </div>
+  
+ 
+    
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">사용성별</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="auction_sub_option2"
+            value="{$auction_info->auction_sub_option2}"
+          >
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+            <option value="남여공용">남여공용</option>
+            <option value="구분없음">구분없음</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">사용여부</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="auction_sub_option4"
+            value="{$auction_info->auction_sub_option4}"
+          >
+            <option value="새상품">새상품</option>
+            <option value="사용감있음">사용감있음</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">손상여부</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="auction_sub_option3"
+            value="{$auction_info->auction_sub_option3}"
+          >
+            <option value="손상없음">손상없음</option>
+            <option value="약간손상">손상있음</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">사용시 주의사항</label>
+      <textarea
+        class="textarea"
+        placeholder="Textarea"
+        name="auction_caution1"
+        value="{$auction_info->auction_caution1}"
+      ></textarea>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">반품 및 환불고시 사항</label>
+      <textarea
+        class="textarea"
+        placeholder="Textarea"
+        name="auction_caution2"
+        value="{$auction_info->auction_caution2}"
+      ></textarea>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">대표이미지</label>
+      <div class="file has-name is-left">
+        <label class="file-label">
+          <input class="file-input" type="file" name="auction_thumbnail" />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label"> 파일을 선택해주세요 </span>
+          </span>
+          <span class="file-name"> Screen Shot 2017-07-29 at 15.54.25.png </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="x_controls">
+      <label class="label">상세설명</label>
+      {$editor|noescape}
+    </div>
+  </div>
+    <div class="level-right">
+      <button class="button">돌아가기</button>
+      <button class="button is-info level-right">경매등록</button>
+    </div>
+  </form>
+</section>
+
+<!--@end-->

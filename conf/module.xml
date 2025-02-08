@@ -14,6 +14,7 @@
 		<action name="procAuctionAdminDelete" type="controller" />
 		<!-- 일반 액션 -->
 		<action name="dispAuctionIndex" type="view" index="true" />
+		<action name="dispAuctionInsert" type="view"/>
 	</actions>
 	<menus>
 		<menu name="auction" type="all">

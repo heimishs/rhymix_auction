@@ -29,8 +29,8 @@
 			<td><a href="{getSiteUrl($val->domain,'','mid',$val->mid)}">{$val->browser_title}</a></td>
 			<td>{zdate($val->regdate,"Y-m-d")}</td>
 			<td>
-				<a href="{getUrl('act','dispAuctionAdminInfo','module_srl',$val->module_srl)}" class="x_icon-cog" title="{$lang->cmd_setup}">{$lang->cmd_setup}</a>
-				<a href="{getUrl('act','dispAuctionAdminDelete','module_srl', $val->module_srl)}" class="x_icon-remove" title="{$lang->cmd_delete}">{$lang->cmd_delete}</a>
+				<a href="{getUrl('mid','admin','act','dispAuctionAdminInfo','module_srl',$val->module_srl)}" class="x_icon-cog" title="{$lang->cmd_setup}">{$lang->cmd_setup}</a>
+				<a href="{getUrl('mid','admin','act','dispAuctionAdminDelete','module_srl', $val->module_srl)}" class="x_icon-remove" title="{$lang->cmd_delete}">{$lang->cmd_delete}</a>
 			</td>
 			<td><input type="checkbox" name="cart" value="{$val->module_srl}" class="selectedModule" data-mid="{$val->mid}" data-browser_title="{$val->browser_title}" /></td>
 		</tr>
@@ -44,7 +44,7 @@
 	<span class="x_pull-right x_btn-group">
 		<!--<a class="x_btn x_btn-inverse" href="{getUrl('act','dispBoardAdminInsertBoard','module_srl','')}">{$lang->cmd_create_board}</a>-->
 		<a
-			href="{getUrl('act','dispAuctionAdminInsert')}"
+			href="{getSiteUrl($module_info->domain,'','mid','admin','act','dispAuctionAdminInsert ')}"
 			class="x_btn modalAnchor _manage_selected"
 			><span>{$lang->cmd_make}</span></a
 		>

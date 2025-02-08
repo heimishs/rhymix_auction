@@ -5,7 +5,6 @@
  *
  * Copyright (c) 위드레브
  *
- * Generated with https://www.poesis.dev/tools/modulegen
  */
 class AuctionView extends Auction
 {
@@ -19,11 +18,36 @@ class AuctionView extends Auction
 	}
 
 	/**
-	 * 메인 화면 예제
+	 * 메인 화면
 	 */
 	public function dispAuctionIndex()
 	{
 		// 스킨 파일명 지정
 		$this->setTemplateFile('index');
+	}
+
+	/**
+	 * 작성 화면
+	 */
+	public function dispAuctionInsert()
+	{
+		// 텍스트 에디터 불러오기
+		$option = new stdClass();
+		$oEditorModel = getModel('editor');
+		$option->primary_key_name = $auction_srl;
+		$option->content_key_name = 'auction_content';
+		$option->allow_fileupload = true;
+		$option->enable_autosave = false;
+		$option->enable_default_component = true;
+		$option->enable_component = false;
+		$option->resizable = false;
+		$option->height = 300;
+		$editor = $oEditorModel->getEditor($auction_srl, $option);
+
+		// 프론트에서 사용할 수 있도록 템플릿 변수로 설정
+		Context::set('editor', $editor);
+
+		// 스킨 파일명 지정
+		$this->setTemplateFile('insert');
 	}
 }

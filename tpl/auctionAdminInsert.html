@@ -10,6 +10,7 @@
 <form action="./" method="post" onsubmit="return procFilter(this, admin_insert)" enctype="multipart/form-data">
   <input type="hidden" name="module_srl" value="{$module_info->module_srl}" />
   <input type="hidden" name="act" value="procAuctionAdminInsert">
+  <input type="hidden" name="success_return_url" value="{getSiteUrl($module_info->domain,'','mid','admin','act','dispAuctionAdminIndex')}">
   
       <div class="x_control-group">
       <label class="x_control-label" for="lang_browser_title">{$lang->mid}</label>
