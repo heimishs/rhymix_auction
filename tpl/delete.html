@@ -12,6 +12,7 @@
     <input type="hidden" name="act" value="procAuctionAdminDelete" />
     <input type="hidden" name="module_srl" value="{$module_srl}" />
     <input type="hidden" name="menu_srl" value="{$module_info->menu_srl}" />
+    <input type="hidden" name="success_return_url" value="{getSiteUrl($module_info->domain,'','mid','admin','act','dispAuctionAdminIndex')}" />
     <button type="submit">예, 삭제합니다</button>
     <a href="{getUrl('act', 'dispAuctionAdminIndex')}">아니요, 취소합니다</a>
 </form>

@@ -60,33 +60,22 @@ class AuctionAdminController extends Auction
 
 	/**
 	 * 경매게시판 삭제 실행
-	 */
-	/**
- * 경매게시판 삭제 실행
- */
-	/**
- * 경매게시판 삭제 실행
- */
+	*/
 	public function procAuctionAdminDelete()
 	{
 		$module_srl = Context::get('module_srl');
+
 		$oModuleController = getController('module');
 		// 이제 모듈 삭제 실행
 		$output = $oModuleController->deleteModule($module_srl);
 
-		var_dump($output);
-		exit;
 		if (!$output->toBool()) {
-			return new BaseObject(-1, '삭제 중 오류가 발생했습니다.');
+		return $output;
 		}
 
-		
-
-		// 삭제 후 목록 페이지로 이동
-		$returnUrl = getUrl('act', 'dispAuctionAdminIndex');
-		return $this->setRedirectUrl($returnUrl);
+		// 삭제 후 목록 페이지로 이동{}
+		$this->setMessage('success_registed');
+		$this->setRedirectUrl(Context::get('success_return_url'));
 	}
-
-
-
+		
 }

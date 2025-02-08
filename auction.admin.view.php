@@ -96,19 +96,10 @@ class AuctionAdminView extends Auction
 		// 삭제할 module_srl 가져오기
 		$module_srl = Context::get('module_srl');
 			
-		if (!$module_srl) {
-			return new BaseObject (-1, '잘못된 요청입니다.');
-		}
-
 		// 모듈 정보 가져오기
 		$oModuleModel = getModel('module');
 		$module_info = $oModuleModel->getModuleInfoByModuleSrl($module_srl);
 		
-		if (!$module_info) {
-			return new BaseObject (-1, '존재하지 않는 경매게시판입니다.');
-		}
-
-
 		// 템플릿에 데이터 전달
 		Context::set('module_info', $module_info);
 		Context::set('module_srl', $module_srl);
